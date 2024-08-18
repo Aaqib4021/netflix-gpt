@@ -7,3 +7,5 @@
 - configure firebase for authentication
 - implement sign up and sign in
 - redux store
+- validation using firebase api for new user sign in and sign out
+- subscribimg to the store

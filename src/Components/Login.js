@@ -7,16 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/Firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { Background_img } from "../Utils/Constants";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const toggleSignInForms = () => {
     setIsSignInForm(!isSignInForm);
@@ -49,7 +48,6 @@ const Login = () => {
                   addUser({ uid: uid, email: email, displayName: displayName })
                 )
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -69,7 +67,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -84,7 +81,7 @@ const Login = () => {
       <Header />
       <div className="fixed inset-0 h-full w-full">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/81bdc063-cb8f-4afe-8a02-a3131ca4ef5e/IN-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7998f3b6-63e3-424a-8328-550cf777ddce_large.jpg"
+          src={Background_img}
           className="h-full w-full object-cover"
           alt="Background"
         />

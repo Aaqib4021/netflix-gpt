@@ -13,7 +13,7 @@ const GptSearch = () => {
           alt="Background"
         />
       </div>
-      <GptSearchBar />
+      {/* <GptSearchBar /> */}
       {/* <GptMovieSuggestions /> */}
     </div>
   );
